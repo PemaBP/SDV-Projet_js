@@ -3,8 +3,13 @@ import Navbar from "@/components/navbar";
 
 function Home() {
   return (
-    <div className={"bg-background-color w-screen h-screen flex"}>
-      <div><Navbar /></div>
+    <div className={"bg-background-color h-screen flex-col"}>
+      <Navbar />
+      <main className="">
+        <div className=" ">
+      <p></p>
+        </div>
+      </main>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 export const typeValidator = yup.string().required().label("Type de lieu");
-export const nameValidator = yup.string().required().label("Nom du lieu");
+export const nameValidator = yup.string().required().label("Lieu");
 export const addressValidator =  yup.string().required().label("Adresse")
 export const cityValidator =  yup.string().required().label("Ville")
 export const postalCodeValidator =  yup.string().max(5).required().label("code postal")

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik,Form, Field, useFormik } from 'formik';
+import * as Yup from 'yup';
 
-const AddressForm = () => {
+const PlaceForm = () => {
   const initialValues = {
     type: '',
     name: '',
@@ -137,7 +138,7 @@ const AddressForm = () => {
                   <option value="autre">Autre</option>
                 </Field>
                 <label htmlFor="barPriceLevel"className="font-bold ml-6">Prix moyen (de 1 à 5):</label>
-                <Field type="number" name="barPriceLevel" id="barPriceLevel" min="1" max="5"className="bg-white text-black" required />
+                <Field type="number" name="barPriceLevel" id="barPriceLevel" min="1" max="5"className=" text-black" required />
               </div>
             )}
 
@@ -172,8 +173,8 @@ const AddressForm = () => {
 
                 {values.freeOrPaidPark === 'payant' && (
                   <div>
-                    <label htmlFor="parkPrice"className="font-bold ml-6">Prix :</label>
-                    <Field type="number" name="parkPrice" id="parkPrice" min="0" />
+                    <label htmlFor="parkPrice"className="font-bold ml-6 ">Prix :</label>
+                    <Field type="number" name="parkPrice" id="parkPrice" min="0" className="text-black" />
                   </div>
                 )}
               </div>
@@ -185,4 +186,4 @@ const AddressForm = () => {
   );
 };
 
-export default AddressForm;
+export default PlaceForm;

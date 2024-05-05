@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+import {Schema} from "mongoose";
 
-const PlaceSchema = new mongoose.Schema({
+export const PlaceSchema = new Schema({
   type: { type: String, required: true },
   name: { type: String, required: true },
   address: { type: String, required: true },
@@ -20,6 +20,3 @@ const PlaceSchema = new mongoose.Schema({
   parkPrice: Number,
 });
 
-const Place = mongoose.model("Address", PlaceSchema);
-
-module.exports = Place;

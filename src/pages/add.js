@@ -1,5 +1,5 @@
 import React from "react";
-import PlaceForm from "../components/PlaceForm";
+import PlaceForm from "./places/essai";
 
 const AddAddressPage = () => {
   return (
@@ -14,6 +14,7 @@ const AddAddressPage = () => {
         <hr className="border-blue-color mx-auto my-12 border-2 w-1/3 m-auto" />
         <div className="pt-4">
           <PlaceForm />
+
         </div>
       </div>
     </div>

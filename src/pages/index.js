@@ -1,16 +1,13 @@
+import Hero from "@/components/hero";
+import PlaceList from "@/components/Placelist";
+import List from "@/components/Placelist";
 import React from "react";
-import Navbar from "@/components/navbar";
-
 function Home() {
   return (
-    <div className={"bg-background-color h-screen flex-col"}>
-      <Navbar />
-      <main className="">
-        <div className=" ">
-      <p></p>
-        </div>
-      </main>
-    </div>
+    <>
+      <Hero />
+      <hr className="border-blue-color mx-auto my-24 border-2 w-1/3 m-auto" />
+    </>
   );
 }
 

@@ -10,7 +10,8 @@ module.exports = {
       colors: {
         'back-color-navbar': "#EEEDED",
         'background-color':"#F5F5F5",
-        'blue-color':"#124076"
+        'blue-color': "#124076",
+        'section-backg':"#7F9F80"
       }
     },
   },

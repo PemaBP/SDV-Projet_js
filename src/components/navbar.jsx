@@ -9,13 +9,13 @@ function navbar() {
         <Image src="/logo.png" alt="Logo" width={65} height={65} />
           <span className="text-3xl text-blue-color ml-4">PlaceSpotter</span>
         </Link>
-        <div className="space-x-8 mr-3 text-blue-color text-3xl "> 
+        <div className="flex gap-6 text-blue-color text-3xl "> 
           <Link href="/" className=" focus:underline focus:font-bold" >Accueil</Link>
-          {" "}
+            
           <Link href="/add" className="focus:underline focus:font-bold">Ajout</Link>
         </div>
       </nav>
-      </div>
+    </div>
   );
 }
 

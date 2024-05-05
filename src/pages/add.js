@@ -1,5 +1,5 @@
 import React from "react";
-import PlaceForm from "./places/essai";
+import PlaceForm from "./places/create";
 
 const AddAddressPage = () => {
   return (

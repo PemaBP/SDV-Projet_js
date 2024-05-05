@@ -58,21 +58,29 @@ const PlaceForm = () => {
       <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
         {(props) => (
           <Form>
-            <FormField name="type" as="select" required className="text-black">
-              <option value="">Sélectionner le type de lieu</option>
-              <option value="restaurant">Restaurant</option>
-              <option value="museum">Musée</option>
-              <option value="bar">Bar</option>
-              <option value="park">Parc</option>
-            </FormField>
-            <FormField name="name"  required className="text-black"/>
-            <FormField name="address" required className="text-black"/>
-            <FormField name="city" required className="text-black"/>
-            <FormField name="postalCode" required className="text-black"/>
-            <FormField name="country" required className="text-black"/>
-
+            <div className='grid grid-cols-2 gap-8 pb-6 '>
+              <label htmlFor="type" className="font-bold">Type de lieu:</label>
+              <FormField name="type" as="select" required className="text-black">
+                <option value="">Sélectionner le type de lieu</option>
+                <option value="restaurant">Restaurant</option>
+                <option value="museum">Musée</option>
+                <option value="bar">Bar</option>
+                <option value="park">Parc</option>
+              </FormField>
+              <label htmlFor="name"className="font-bold">Nom du lieu:</label>
+              <FormField name="name" required className="text-black" />
+              <label htmlFor="address"className="font-bold">Adresse:</label>
+              <FormField name="address" required className="text-black" />
+              <label htmlFor="city"className="font-bold">Ville:</label>
+              <FormField name="city" required className="text-black" />
+              <label htmlFor="postalCode"className="font-bold ">Code postal:</label>
+              <FormField name="postalCode" required className="text-black" />
+              <label htmlFor="country"className="font-bold ">Pays:</label>
+              <FormField name="country" required className="text-black"/>
+            </div>
             {props.values.type === 'restaurant' && (
               <>
+                <label htmlFor="cuisineType"className="font-bold">Type de cuisine:</label>
                 <FormField name="cuisineType" as="select" required className="text-black">
                   <option value="">Sélectionner le type de cuisine</option>
                   <option value="italienne">Italienne</option>
@@ -85,9 +93,11 @@ const PlaceForm = () => {
                   <option value="chilienne">Chilienne</option>
                   <option value="autre">Autre</option>
                 </FormField>
+                <label htmlFor="stars"className="font-bold ml-6">Nombre d'étoiles:</label>
                 <FormField name="stars" label="Nombre d'étoiles" required className="text-black">
                   <Field type="number" name="stars" id="stars" min="0" max="3" className="bg-white text-black" />
                 </FormField>
+                <label htmlFor="priceLevel"className="font-bold ml-6">Prix moyen (de 1 à 5):</label>
                 <FormField name="priceLevel" label="Prix moyen (de 1 à 5)" required className="text-black">
                   <Field type="number" name="priceLevel" id="priceLevel" min="1" max="5" className="bg-white text-black" />
                 </FormField>
@@ -96,6 +106,7 @@ const PlaceForm = () => {
 
             {props.values.type === 'museum' && (
               <>
+                <label htmlFor="artStyle"className="font-bold">Courant artistique:</label>
                 <FormField name="artStyle" as="select" label="Courant artistique" required className="text-black">
                   <option value="">Sélectionner le courant artistique</option>
                   <option value="classicisme">Classicisme</option>
@@ -108,6 +119,7 @@ const PlaceForm = () => {
                   <option value="tout genre">Tout genre</option>
                   <option value="autre">Autre</option>
                 </FormField>
+                <label htmlFor="artType"className="font-bold ml-6 ">Type d'art:</label>
                 <FormField name="artType" as="select" label="Type d'art" required className="text-black">
                   <option value="">Sélectionner le type d'art</option>
                   <option value="sculpture">Sculpture</option>
@@ -117,6 +129,7 @@ const PlaceForm = () => {
                   <option value="mixte">Mixte</option>
                   <option value="autre">Autre</option>
                 </FormField>
+                <label htmlFor="freeOrPaid"className="font-bold ml-6">Gratuit ou payant:</label>
                 <FormField name="freeOrPaid" as="select" label="Gratuit ou payant" required className="text-black">
                   <option value="">Sélectionner</option>
                   <option value="gratuit">Gratuit</option>
@@ -124,15 +137,20 @@ const PlaceForm = () => {
                 </FormField>
             
                 {props.values.freeOrPaid === 'payant' && (
-                  <FormField name="parkPrice" label="Prix" required className="text-black">
-                    <Field type="number" name="parkPrice" id="parkPrice" min="0" max="500"className="bg-white text-black" />
-                  </FormField>
+                  <div>
+                    <label htmlFor="Price"className="font-bold ml-6">Prix :</label>
+                    <FormField name="parkPrice" label="Prix" required className="text-black">
+                      <Field type="number" name="parkPrice" id="parkPrice" min="0" max="500"className="bg-white text-black" />
+                    </FormField>
+                  </div>
+
                 )}
               </>
             )}
 
             {props.values.type === 'bar' && (
               <>
+                <label htmlFor="barType"className="font-bold">Type de bar:</label>
                 <FormField name="barType" as="select" label="Type de bar" required className="text-black">
                   <option value="">Sélectionner le type de bar</option>
                   <option value="bar dansant">Bar dansant</option>
@@ -146,6 +164,7 @@ const PlaceForm = () => {
                   <option value="clubs">Clubs</option>
                   <option value="autre">Autre</option>
                 </FormField>
+                <label htmlFor="barPriceLevel"className="font-bold ml-6">Prix moyen (de 1 à 5):</label>
                 <FormField name="barPriceLevel" label="Prix moyen (de 1 à 5)" required className="text-black"> 
                   <Field type="number" name="barPriceLevel" id="barPriceLevel" min="1" max="5" className="bg-white text-black" />
                 </FormField>
@@ -154,6 +173,7 @@ const PlaceForm = () => {
 
             {props.values.type === 'park' && (
               <>
+                <label htmlFor="parkType"className="font-bold">Type de parc:</label>
                 <FormField name="parkType" as="select" label="Type de parc" required className="text-black">
                   <option value="">Sélectionner le type de parc</option>
                   <option value="zoologique">Zoologique</option>
@@ -165,21 +185,25 @@ const PlaceForm = () => {
                   <option value="aquatique">Aquatique</option>
                   <option value="autre">Autre</option>
                 </FormField>
+                <label htmlFor="isPublic"className="font-bold ml-6">Public ou privé:</label>
                 <FormField name="isPublic" as="select" label="Public ou privé" required className="text-black">
                   <option value="">Sélectionner</option>
                   <option value="public">Public</option>
                   <option value="private">Privé</option>
                 </FormField>
+                <label htmlFor="freeOrPaidPark"className="font-bold ml-6">Gratuit ou payant:</label>
                 <FormField name="freeOrPaidPark" as="select" label="Gratuit ou payant" required className="text-black">    
                   <option value="">Sélectionner</option>
                   <option value="gratuit">Gratuit</option>
                   <option value="payant">Payant</option>
                 </FormField>
-
                 {props.values.freeOrPaidPark === 'payant' && (
-                  <FormField name="parkPrice" label="Prix" required className="text-black">
-                    <Field type="number" name="parkPrice" id="parkPrice" min="0" max="500" className="bg-white text-black" />
-                  </FormField>
+                  <div>
+                    <label htmlFor="parkPrice"className="font-bold ml-6 ">Prix :</label>
+                    <FormField name="parkPrice" label="Prix" required className="text-black">
+                      <Field type="number" name="parkPrice" id="parkPrice" min="0" max="500" className="bg-white text-black" />
+                    </FormField>
+                  </div>
                 )}
               </>
             )}
